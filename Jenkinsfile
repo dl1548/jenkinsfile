@@ -7,12 +7,13 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls -la'
-                sh 'mvn clean'
+                //sh 'mvn clean'//
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'pwd'
                 sh 'mvn clean verify sonar:sonar -f moni/pom.xml'
             }
         }
