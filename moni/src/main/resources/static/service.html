@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务视图</title>
+    <link rel="stylesheet" href="jsp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jsp/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="jsp/css/style.css">
+    <link rel="stylesheet" href="jsp/css/style_.css">
+    <link rel="stylesheet" href="jsp/css/style_test.css">
+    <link rel="stylesheet" href="jsp/css/jquery.mloading.css"/>
+    <link rel="stylesheet" href="jsp/assets/layui/css/layui.css">
+    <link rel="shortcut icon" href="jsp/img/ico2.png">
+</head>
+<body>
+<section id="container" class="">
+    <header class="header white-bg">
+        <!-- <div class="sidebar-toggle-box">
+             <i class="fa fa-align-justify"></i>
+         </div>-->
+        <!--logo start-->
+        <a href="index.html" class="logo"><span class="indexspan">  Monitor</span></a>
+        <!--logo end-->
+        <!--<div class="nav notify-row" id="top_menu">
+            &lt;!&ndash;  notification start &ndash;&gt;
+            <ul class="nav top-menu">
+                &lt;!&ndash; settings start &ndash;&gt;
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-server"></i>
+                        <span class="badge bg-success">6</span>
+                    </a>
+                </li>
+                &lt;!&ndash; settings end &ndash;&gt;
+                &lt;!&ndash; inbox dropdown start&ndash;&gt;
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge bg-important">5</span>
+                    </a>
+                </li>
+                &lt;!&ndash; inbox dropdown end &ndash;&gt;
+                &lt;!&ndash; notification dropdown start&ndash;&gt;
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                        <i class="fa fa-bell"></i>
+                        <span class="badge bg-warning">7</span>
+                    </a>
+                </li>
+                &lt;!&ndash; notification dropdown end &ndash;&gt;
+            </ul>
+            &lt;!&ndash;  notification end &ndash;&gt;
+        </div>
+        <div class="top-nav ">
+            &lt;!&ndash;search & user info start&ndash;&gt;
+            <ul class="nav pull-right top-menu">
+                <li>
+                    <input type="text" class="form-control search" placeholder="Search">
+                </li>
+                &lt;!&ndash; user login dropdown start&ndash;&gt;
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="img/avatar1_small.jpg">
+                        <span class="username">Jhon Doue</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li><a href="#"><i class=" icon-suitcase"></i>Profile</a></li>
+                        <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                        <li><a href="#"><i class="icon-bell-alt"></i> Notification</a></li>
+                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                    </ul>
+                </li>
+                &lt;!&ndash; user login dropdown end &ndash;&gt;
+            </ul>
+            &lt;!&ndash;search & user info end&ndash;&gt;
+        </div>-->
+        <div>
+            <ul class="layui-nav indexOut">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="color8">admin</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="login.html">退出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li class="sub-menu">
+                    <a class="" href="index.html">
+                        <i class="fa fa-globe "></i>
+                        <span class="font14px">总览</span>
+                    </a>
+                </li>
+                <!--<li class="sub-menu">
+                    <a class="" href="#">
+                        <i class="fa fa-dashboard "></i>
+                        <span>仪表盘</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="#" class="">
+                        <i class="fa fa-sitemap"></i>
+                        <span>拓扑图</span>
+                    </a>
+                </li>-->
+                <li class="active">
+                    <a href="service.html" class="">
+                        <i class="fa fa-codepen"></i>
+                        <span class="font14px">业务视图</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="Infrastructure.html" class="" onclick="cleanCookie()">
+                        <i class="fa fa-server"></i>
+                        <span class="font14px">资源池监控</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="fault.html" class="">
+                        <i class="fa fa-bell"></i>
+                        <span class="font14px">故障告警</span>
+                    </a>
+                </li>
+                <!--<li>
+                    <a class="sub-menu" href="#">
+                        <i class="fa fa-adn"></i>
+                        <span>自动化</span>
+                    </a>
+                </li>-->
+                <li class="sub-menu">
+                    <a href="analysis.html" class="">
+                        <i class="fa fa-bar-chart"></i>
+                        <span class="font14px">分析</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="sub-menu" href="set.html">
+                        <i class="fa fa-gears"></i>
+                        <span class="font14px">设置</span>
+                    </a>
+                </li>
+            </ul>
+            <img src="jsp/img/89583768002741918.png" class="logo">
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <section id="main-content">
+        <section class="wrapper" id="service">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-height-service">
+                        <div class="panel-body t-management">
+                            <h4 class="c-title">业务视图</h4>
+                        </div>
+                        <div class="panel-heading">
+                            <!-- <span class="userText">告警等级</span>
+                             <select class="form-control usersName">
+                                 <option>全部</option>
+                                 <option>>=信息</option>
+                                 <option>>=警告</option>
+                                 <option>>=严重</option>
+                                 <option>>=灾难</option>
+                             </select>
+                             <span class="userText">刷新周期</span>
+                             <select class="form-control usersName">
+                                 <option>1分钟</option>
+                                 <option>2分钟</option>
+                                 <option>5分钟</option>
+                                 <option>10分钟</option>
+                                 <option>30分钟</option>
+                             </select>-->
+                            <input type="text" class="form-control u-search" placeholder="请输入要查找的业务名称" v-model="serviceSearch">
+                            <button class="btn btn-success" v-on:click="searchService(serviceSearch)">搜索</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#create"
+                                    v-on:click="createNew">新建业务
+                            </button>
+                            <span>
+                            <label class="checkbox-inline" for="edi"><input type="checkbox" id="edi" v-model="edi">编辑</label>
+                            </span>
+                            <div class="pull-right">
+                                <span class="processi back6"></span>
+                                <span>灾难</span>
+                                <span class="processi back5"></span>
+                                <span>高</span>
+                                <span class="processi back4"></span>
+                                <span>一般</span>
+                                <span class="processi back3"></span>
+                                <span>警告</span>
+                                <span class="processi back2"></span>
+                                <span>信息</span>
+                                <span class="processi back1"></span>
+                                <span>未分类</span>
+                                <span class="processi back0"></span>
+                                <span>正常</span>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-lg" id="create" tabindex="-1"
+                             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+                             data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">新建业务</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row bs-callout bs-callout-warning">
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-10">
+                                                    <span class="userText">业务名称:</span>
+                                                    <input type="text" class="form-control usersName" v-model="name">
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-11">
+                                                    <span class="userText">业务流程:</span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <span v-for="(data,index) in process"
+                                                          class="position-relative process">
+                                                        <button class="btn processbtn" v-on:click="processClick(index)" v-cloak>流程{{index+1}}：{{data.processname}}</button>
+                                                        <button type="button" class="closeProcess color1"
+                                                                data-toggle="modal" data-target="#delProcess"
+                                                                v-on:click="getIndex(index)"><i class="fa fa-close"></i></button>
+                                                    </span>
+                                                    <button class="btn btn-default" v-on:click="addProcess"><i
+                                                            class="fa fa-plus font-r color1"></i>新建流程
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-callout bs-callout-info">
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-11">
+                                                    <span class="userText">流程名称:</span>
+                                                    <input type="text" class="form-control usersName" v-model="nameVal">
+                                                </div>
+                                                <div class="col-xs-1">
+                                                    <button class="btn btn-success" v-on:click="save">保存</button>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#hostGroup">主机组:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in hostGroupView" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delHostGroup(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#host">主机:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in hostView" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delHost(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#application">应用集:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in application_" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo"
+                                                           v-on:click="delapplication(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#item">监控项:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in item_" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delItem(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消
+                                        </button>
+                                        <button type="button" class="btn btn-primary" v-on:click="subProcess">
+                                            确认
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel" id="delProcess">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">确认删除</h3>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消
+                                        </button>
+                                        <button type="button" class="btn btn-primary"
+                                                data-dismiss="modal" v-on:click="delProcess">确认
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="load">
+                            <div class="panel-body panel-body-height-service">
+                                <div class="processCrile" v-for="(data,index) in business" v-bind:class="data.class">
+                                    <div class="processCrileName mbottom2 over over-service" data-toggle="modal" data-target="#show"
+                                         v-on:click="showProcess(data.process[0].businessname,index)" v-cloak>
+                                        {{data.process[0].businessname}}
+                                    </div>
+                                    <div class="text-align-center mbottom2"><span
+                                            class="processStyle" v-cloak>设备：{{data.hostcount}}</span></div>
+                                    <div class="text-align-center mbottom2"><span
+                                            class="processStyle" v-cloak>故障：{{data.priority}}</span></div>
+                                    <div>
+                                        <i class="fa fa-trash-o fa-lg cursor pull-left" title="删除" data-toggle="modal"
+                                           data-target="#deleteProcess" v-on:click="dps(data.process[0].businessname,index)"
+                                           v-show="edi"></i>
+                                        <i class="fa fa-pencil fa-lg cursor pull-right" title="编辑" data-toggle="modal"
+                                           data-target="#createProcess" v-on:click="editProcess(index)" v-show="edi"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-align-center backwhite">
+                            © 2017 - 2019, JKSTACK. All rights reserved.
+                        </div>
+                        <div class="modal fade bs-example-modal-lg" id="show" tabindex="-1"
+                             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+                             data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4 ini">业务详情</h3>
+                                        <div class="pull-right hei33 mr10">
+                                            <span class="processi back6"></span>
+                                            <span>灾难</span>
+                                            <span class="processi back5"></span>
+                                            <span>高</span>
+                                            <span class="processi back4"></span>
+                                            <span>一般</span>
+                                            <span class="processi back3"></span>
+                                            <span>警告</span>
+                                            <span class="processi back2"></span>
+                                            <span>信息</span>
+                                            <span class="processi back1"></span>
+                                            <span>未分类</span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row bs-callout bs-callout-warning">
+                                            <div class="col-xs-2 allProcess" v-for="(data,index) in showTriggerView">
+                                                <div class="showProcess" v-on:click="clickProcess(index)" v-cloak>{{index+1}}
+                                                </div>
+                                                <div class="text-align-center">
+                                                    <button class="btn btn-link" data-toggle="modal"
+                                                            data-target="#createProcess" v-on:click="editProcess()">
+                                                        {{data.processname}}
+                                                    </button>
+                                                </div>
+                                                <div class="text-align-center" v-cloak>灾难:{{data.Worst}}个</div>
+                                                <div class="text-align-center" v-cloak>严重:{{data.bad}}个</div>
+                                                <div class="text-align-center" v-cloak>其他:{{data.other}}个</div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <td>#</td>
+                                                <td>名称</td>
+                                                <td>最后变更</td>
+                                                <td>持续时间</td>
+                                                <td>主机组</td>
+                                                <td>主机</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr v-for="(data,index) in singelProcess">
+                                                <td v-cloak>{{index+1}}</td>
+                                                <td>
+                                                    <span :class="data.css" v-cloak>{{data.description}}</span>
+                                                </td>
+                                                <td v-cloak>{{data.lastchanged}}</td>
+                                                <td v-cloak>{{data.timezone}}</td>
+                                                <td v-cloak>
+                                                    {{data.groupname}}
+                                                    <!--<button class="btn btn-link" data-toggle="modal"
+                                                            data-target="#seeGroups" v-on:click="seeGroups(index)">
+                                                        {{data.groups.length}}
+                                                    </button>-->
+                                                </td>
+                                                <td v-cloak>
+                                                    {{data.hostname}}
+                                                    <!--<button class="btn btn-link" data-toggle="modal"
+                                                            data-target="#seehosts" v-on:click="seeHosts(index)">
+                                                        {{data.hosts.length}}
+                                                    </button>-->
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm" tabindex="-1"
+                             role="dialog"
+                             aria-labelledby="mySmallModalLabel" aria-hidden="true"
+                             data-backdrop="static" data-keyboard="false" style="overflow: auto"
+                             id="seeGroups">
+                            <div class="modal-dialog modal-sm mid2" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">查看主机组</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <ul class="col-xs-12" v-for="data in groupsName">
+                                                <li v-cloak>{{data}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm" tabindex="-1"
+                             role="dialog"
+                             aria-labelledby="mySmallModalLabel" aria-hidden="true"
+                             data-backdrop="static" data-keyboard="false" style="overflow: auto"
+                             id="seehosts">
+                            <div class="modal-dialog modal-sm mid2" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">查看主机</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <ul class="col-xs-12" v-for="data in hostsName">
+                                                <li v-cloak>{{data}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-lg" id="createProcess" tabindex="-1"
+                             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+                             data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">编辑业务</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row bs-callout bs-callout-warning">
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-10">
+                                                    <span class="userText">业务名称:</span>
+                                                    <input type="text" class="form-control usersName" v-model="name">
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-11">
+                                                    <span class="userText">业务流程:</span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12 par">
+                                                    <span v-for="(data,index) in processEdit"
+                                                          class="position-relative process2">
+                                                        <button class="btn processbtn2"
+                                                                v-on:click="processClick2(index)" v-cloak>流程{{index+1}}：{{data.processname}}</button>
+                                                        <button type="button" class="closeProcess color1"
+                                                                data-toggle="modal" data-target="#delProcess2"
+                                                                v-on:click="getIndex(index)"><i class="fa fa-close"></i></button>
+                                                    </span>
+                                                    <button class="btn btn-default" v-on:click="addProcess2"><i
+                                                            class="fa fa-plus font-r color1"></i>新建流程
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row bs-callout bs-callout-info">
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-11">
+                                                    <span class="userText">流程名称:</span>
+                                                    <input type="text" class="form-control usersName" v-model="nameVal">
+                                                </div>
+                                                <div class="col-xs-1">
+                                                    <button class="btn btn-success" v-on:click="save2">保存</button>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#hostGroup">主机组:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in hostGroupView" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delHostGroup(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#host">主机:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in hostView" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delHost(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#application">应用集:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in application_" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo"
+                                                           v-on:click="delapplication(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mbottom2">
+                                                <div class="col-xs-12">
+                                                    <button class="btn btn-info" data-toggle="modal"
+                                                            data-target="#item">监控项:
+                                                    </button>
+                                                    <span class="tc" v-for="(data,index) in item_" v-cloak>
+                                                        {{data.name}}
+                                                        <i class="fa fa-close clo" v-on:click="delItem(index)"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消
+                                        </button>
+                                        <button type="button" class="btn btn-primary" v-on:click="editSubmit">
+                                            确认
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel" id="delProcess2">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">确认删除</h3>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消
+                                        </button>
+                                        <button type="button" class="btn btn-primary"
+                                                data-dismiss="modal" v-on:click="makeSureDel">确认
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel" id="deleteProcess">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title color4">确认删除</h3>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消
+                                        </button>
+                                        <button type="button" class="btn btn-primary"
+                                                data-dismiss="modal" v-on:click="dep">确认
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm pos" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel"
+                             aria-hidden="true" data-backdrop="static" data-keyboard="false"
+                             style="overflow: auto" id="hostGroup">
+                            <div class="modal-dialog modal-sm mid2">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="modal-title color4">选择主机组</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <select size="10" class="form-control" multiple="multiple"
+                                                        v-model="hostGroupModel">
+                                                    <option v-for="(data,index) in hostGroup" :value="index" v-cloak>
+                                                        {{data.name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                        </button>
+                                        <button type="button" class="btn btn-primary pull-left"
+                                                v-on:click="addHostGroup">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm pos" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel"
+                             aria-hidden="true" data-backdrop="static" data-keyboard="false"
+                             style="overflow: auto" id="host">
+                            <div class="modal-dialog modal-sm mid2">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="modal-title color4">选择主机</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <select size="10" class="form-control" multiple="multiple"
+                                                        v-model="hostModel">
+                                                    <option v-for="(data,index) in host" :value="index" v-cloak>
+                                                        {{data.name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary pull-left" v-on:click="addHost">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm pos" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel"
+                             aria-hidden="true" data-backdrop="static" data-keyboard="false"
+                             style="overflow: auto" id="application">
+                            <div class="modal-dialog modal-sm mid2">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="modal-title color4">选择应用集</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--  <div class="row mbottom2">
+                                              <div class="col-xs-12">
+                                                  <span>选择主机组：</span>
+                                                  <select class="form-control usersName_" v-model="hostGroupModel2"
+                                                          v-on:change="getHostByHostGroup">
+                                                      <option v-for="(data,index ) in hostGroup" :value="data.groupid">
+                                                          {{data.name}}
+                                                      </option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="row mbottom2">
+                                              <div class="col-xs-12">
+                                                  <span>选择主机：</span>
+                                                  <select class="form-control usersName_" v-model="host2Model"
+                                                          v-on:change="getApplicationByHost">
+                                                      <option v-for="(data,index) in host2" :value="data.id">
+                                                          {{data.name}}
+                                                      </option>
+                                                  </select>
+                                              </div>
+                                          </div>-->
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <select size="10" class="form-control" multiple="multiple"
+                                                        v-model="applicationModel">
+                                                    <option v-for="(data,index) in application" :value="index" v-cloak>
+                                                        {{data.name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary pull-left"
+                                                v-on:click="applicationChange">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-sm pos" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel"
+                             aria-hidden="true" data-backdrop="static" data-keyboard="false"
+                             style="overflow: auto" id="item">
+                            <div class="modal-dialog modal-sm mid2">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="modal-title color4">选择监控项</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- <div class="row mbottom2">
+                                             <div class="col-xs-12">
+                                                 <span>选择主机组：</span>
+                                                 <select class="form-control usersName_" v-model="hostGroupModel2"
+                                                         v-on:change="getHostByHostGroup">
+                                                     <option v-for="(data,index) in hostGroup" :value="data.groupid">
+                                                         {{data.name}}
+                                                     </option>
+                                                 </select>
+                                             </div>
+                                         </div>
+                                         <div class="row mbottom2">
+                                             <div class="col-xs-12">
+                                                 <span>选择主机：</span>
+                                                 <select class="form-control usersName_" v-model="host2Model"
+                                                         v-on:change="getApplicationByHost">
+                                                     <option v-for="(data,index) in host2" :value="data.id">
+                                                         {{data.name}}
+                                                     </option>
+                                                 </select>
+                                             </div>
+                                         </div>-->
+                                        <div class="row mbottom2">
+                                            <div class="col-xs-12">
+                                                <span>选择应用集：</span>
+                                                <select class="form-control usersName_" v-model="application_Model"
+                                                        v-on:change="getItem">
+                                                    <option v-for="(data,index) in application"
+                                                            :value="data.applicationid" v-cloak>{{data.name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <select size="10" class="form-control" multiple="multiple"
+                                                        v-model="itemModel">
+                                                    <option v-for="(data,key,index) in item" :value="index" v-cloak>{{data}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary pull-left" v-on:click="itemPush">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
+<script src="jsp/js/jquery-3.2.1.min.js"></script>
+<script src="jsp/js/bootstrap.min.js"></script>
+<script src="jsp/js/vue.min.js"></script>
+<script src="jsp/js/echarts.min.js"></script>
+<script src="jsp/js/macarons.js"></script>
+<script src="jsp/js/dark.js"></script>
+<script src="jsp/js/infographic.js"></script>
+<script src="jsp/js/roma.js"></script>
+<script src="jsp/js/shine.js"></script>
+<script src="jsp/js/vintage.js"></script>
+<script src="jsp/assets/layui/layui.js"></script>
+<script src="jsp/js/jquery.mloading.js" type="text/javascript"></script>
+<script src="jsp/js/service.js"></script>
+</body>
+</html>

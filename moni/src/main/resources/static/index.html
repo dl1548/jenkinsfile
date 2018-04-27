@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>总览</title>
+    <link rel="stylesheet" href="jsp/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="jsp/assets/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="jsp/css/style.css"/>
+    <link rel="stylesheet" href="jsp/css/style_.css"/>
+    <link rel="stylesheet" href="jsp/css/style_test.css"/>
+    <link rel="stylesheet" href="jsp/css/jquery.mloading.css"/>
+    <link rel="stylesheet" href="jsp/assets/layui/css/layui.css"/>
+    <link rel="shortcut icon" href="jsp/img/ico2.png">
+    <style>
+        .row{margin-left: 0;margin-right: 0}
+        .task-progress h1{font-size: 15px;!important;}
+    </style>
+</head>
+<body>
+<section id="container">
+    <header class="header white-bg">
+       <!-- <div class="sidebar-toggle-box">
+            <i class="fa fa-align-justify"></i>
+        </div>-->
+        <a href="index.html" class="logo"><span class="indexspan">  Monitor</span></a>
+        <!--<div class="nav notify-row" id="top_menu">
+            <ul class="nav top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-server"></i>
+                        <span class="badge bg-success">6</span>
+                    </a>
+                </li>
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge bg-important">5</span>
+                    </a>
+                </li>
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                        <i class="fa fa-bell"></i>
+                        <span class="badge bg-warning">7</span>
+                    </a>
+                </li>
+            </ul>
+        </div>-->
+        <div>
+            <ul class="layui-nav indexOut">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="color8">admin</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="login.html">退出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a class="" href="">
+                        <i class="fa fa-globe "></i>
+                        <span class="font14px">总览</span>
+                    </a>
+                </li>
+                <!-- <li class="sub-menu">
+                     <a href="#" class="">
+                         <i class="fa fa-dashboard "></i>
+                         <span>仪表盘</span>
+                     </a>
+                 </li>-->
+                <!-- <li class="sub-menu">
+                     <a href="#" class="">
+                         <i class="fa fa-sitemap"></i>
+                         <span>拓扑图</span>
+                     </a>
+                 </li>-->
+                <li class="sub-menu">
+                    <a href="service.html" class="">
+                        <i class="fa fa-codepen"></i>
+                        <span class="font14px">业务视图</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="Infrastructure.html" class="" onclick="cleanCookie()">
+                        <i class="fa fa-server"></i>
+                        <span class="font14px">资源池监控</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="fault.html" class="">
+                        <i class="fa fa-bell"></i>
+                        <span class="font14px">故障告警</span>
+                    </a>
+                </li>
+                <!--<li>
+                    <a class="sub-menu" href="#">
+                        <i class="fa fa-adn"></i>
+                        <span>自动化</span>
+                    </a>
+                </li>-->
+                <li class="sub-menu">
+                    <a href="analysis.html" class="">
+                        <i class="fa fa-bar-chart"></i>
+                        <span class="font14px">分析</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="set.html" class="">
+                        <i class="fa fa-gears"></i>
+                        <span class="font14px">设置</span>
+                    </a>
+                </li>
+            </ul>
+            <img src="jsp/img/89583768002741918.png" class="logo">
+        </div>
+    </aside>
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row row-index">
+                <div class="col-lg-4" id="vue_0">
+                    <div class="row panel" style="height:240px">
+                        <div class="col-lg-6">
+                            <section>
+                                <div class="panel-heading clearfix panel-heading-clearfix-index" v-on:click="c">
+                                    <div class="task-progress">
+                                        <h1>
+                                            <span class="dot2-index" style="left:10px"></span>
+                                            &nbsp;&nbsp;主机概览
+                                        </h1>
+                                    </div>
+                                    <div class="row m-bottom">
+                                        <div class="col-xs-4 col-xs-offset-4"><span v-cloak class="n-big">{{d1}}</span><span
+                                                class="t-small">EA</span></div>
+                                    </div>
+                                    <div class="row l-height">
+                                        <div class="col-xs-offset-2 col-xs-2"><span v-cloak class="color-normal common2 color-white-index backgroundcolor-normal-index">{{d3}}</span>
+                                        </div>
+                                        <div class="col-xs-offset-2 col-xs-2">
+                                            <div class="back-color css">
+                                                <div class="back-color css2"></div></div>
+                                            <span v-cloak class="color-alarm common2 color-white-index">{{d2}}</span></div>
+                                    </div>
+                                    <div class="row m-top">
+                                        <div class="col-xs-offset-2 col-xs-4"><p>&nbsp;正常</p></div>
+                                        <div class="col-xs-4"><p>&nbsp;故障</p></div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                        <div class="col-lg-3 push-system-index">
+                            <div class="row">
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-windows push-system-sons-index"></i>
+                                    <strong v-cloak v-on:click="jumptype('Windows')">&nbsp;&nbsp;{{Windows}}</strong>
+                                </div>
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-linux push-system-sons-index"></i>
+                                    <strong v-cloak v-on:click="jumptype('linux')">&nbsp;&nbsp;{{linux}}</strong>
+                                </div>
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-sitemap push-system-sons-index"></i>
+                                    <strong v-cloak>&nbsp;&nbsp;0</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 push-system-index">
+                            <div class="row">
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-database push-system-sons-index"></i>
+                                    <strong v-cloak v-on:click="jumptype('network')">&nbsp;&nbsp;{{network}}</strong>
+                                </div>
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-cloud push-system-sons-index"></i>
+                                    <strong v-cloak>&nbsp;&nbsp;0</strong>
+                                </div>
+                                <div class="col-lg-push-4 push-system-son-index">
+                                    <i class="fa font-r fa-gears push-system-sons-index"></i>
+                                    <strong v-cloak>&nbsp;&nbsp;0</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" id="vue">
+                    <section class="panel">
+                        <div class="panel-heading clearfix indexPadding0 task-progress-head-index-border">
+                            <div class="task-progress">
+                                <h1>
+                                    <span class="dot2-index"></span>
+                                    &nbsp;&nbsp;业务概览
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="panel-body indexService indexService-index scroll-index">
+                            <div class="indexProcess indexProcess-2-index" v-for="data in business" v-bind:class="data.class">
+                                <a href="service.html" class="acolorwhite">
+                                    <div class="margin-bottom-5px over margin-bottom-5px-index" :title="data.process[0].businessname"><span v-cloak class="over">{{data.process[0].businessname}}</span></div>
+                                </a>
+                                <!--<div class="margin-bottom-5px"><span v-cloak class="indexProcessSpan">设备：{{data.hostcount}}</span></div>-->
+                                <!--<div><span v-cloak class="indexProcessSpan" v-cloak>故障：{{data.priority}}</span></div>-->
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-2">
+                    <section class="panel" id="vue_11">
+                        <div class="task-progress">
+                            <h1>
+                                <span class="dot2-index"></span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故障视图
+                            </h1>
+                        </div>
+                        <div id="chart11" style="width: 100%;height: 204px;"></div>
+                    </section>
+                </div>
+                <div class="col-lg-3">
+                    <section class="panel vue-5-index scroll-index" id="vue_5" style="height: 241px">
+                        <div class="task-progress task-progress-head-index task-progress-head2-index" style="border-bottom: 1px solid #dddddd">
+                            <h1 class="border-index" style="margin-left: 20px;border: 0">
+                                <span class="dot-index"></span>
+                                &nbsp;&nbsp;主机群组
+                            </h1>
+                        </div>
+                        <table class="table table-hover" id="table1">
+                            <tbody id="group_one" class="">
+                            <tr v-for="data in d" class="cursor group-tr text-height-index" v-on:click="groupClcik(data.name)">
+                                <td><span v-cloak class="text1">{{data.name}}</span></td>
+                                <td><span v-cloak class="common color-normal color-normal-index backgroundcolor-normal-index">{{data.hosts.length}}</span></td>
+                                <td><span v-cloak class="common color-alarm color-normal-index">{{data.err}}</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--     <div>
+                                 <a href="#" class="pagebtn pre" onclick="page.prePage();"><i class="fa fa-angle-left"></i></a>
+                                 <a href="#" class="pagebtn nxt" onclick="page.nextPage();"><i class="fa fa-angle-right"></i></a>
+                             </div>-->
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <section class="panel" id="vue_7">
+                         <div class="panel-body progress-panel panel-body-head-index">
+                            <div class="task-progress pull-left">
+                                <h1>
+                                    <span class="dot2-index" style="top:18px"></span>
+                                    &nbsp;&nbsp;TOP5
+                                </h1>
+                            </div>
+                            <div class="pull-right">
+                                <select v-on:change="hostGroup" class="form-control userInput top5 top6" id="v-1" v-model="hostGroupModel" v-bind:disabled="num==0">
+                                    <option value="">选择主机组</option>
+                                    <option v-cloak v-for="data in host" :value="data.groupid">{{data.name}}</option>
+                                </select>
+                                <select v-model="applicationName" class="form-control userInput top5 top6" id="v-2" v-bind:disabled="num==0">
+                                    <option value="">选择监控项</option>
+                                    <option v-cloak v-for="data in name" :value="data.v">{{data.d}}</option>
+                                </select>
+                                <select class="form-control userInput top5" id="hours" v-bind:disabled="num==0" v-model="hoursModel" v-on:change="changeTime">
+                                    <option value="now">当前状态</option>
+                                    <option value="0.5">半小时</option>
+                                    <option value="1">一小时</option>
+                                    <option value="12">十二小时</option>
+                                    <option value="24">一天</option>
+                                </select>
+                                <select v-model="sort" class="form-control userInput top5" v-bind:disabled="num==0" v-show="nums==1">
+                                    <option value="0">最大值</option>
+                                    <option value="1">最小值</option>
+                                    <option value="2">平均值</option>
+                                </select>
+                                <select class="form-control userInput top5" id="sel" v-bind:disabled="num==0">
+                                    <option value="0">降序</option>
+                                    <option value="1">升序</option>
+                                </select>
+                                <button id="give" class="btn btn-danger" v-on:click="sub" v-bind:disabled="num==0">提交</button>
+                                <button class="btn btn-primary" v-on:click="lock" v-cloak>{{fresh}}</button>
+                            </div>
+                        </div>
+                        <div id="load">
+                            <table class="table personal-task table-striped">
+                                <tbody>
+                                <tr v-for="(data,index) in top5">
+                                    <td v-cloak>{{index+1}}</td>
+                                    <td v-cloak style="color:#ff6c60">{{data.name}}</td>
+                                    <td>
+                                        <span v-cloak class="badge bg-important">{{data.lastvalue}}{{data.units}}</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="panel panel-height-index" id="vue_6">
+                        <div class="panel-heading panel-body-head-index">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="task-progress" style="margin-left: -14px">
+                                        <h1>
+                                            <span class="dot2-index" style="left:-5px"></span>
+                                            &nbsp;&nbsp;故障趋势
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <select class='form-control userInput pull-right' v-model="timeModel" v-on:change="time(timeModel)">
+                                        <option value='86400'>最近24小时</option>
+                                        <option value="2592000">最近30天</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="chart" style="width: 100%;height: 300px"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-5">
+                    <section class="panel panel2-height-index" id="vue_1">
+                        <div class="panel-heading panel-body-head-index">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="task-progress">
+                                        <h1>
+                                            <span class="dot2-index" style="left:3px"></span>
+                                            &nbsp;当前故障列表
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control userInput pull-right errgroup"
+                                           v-model='search' style="line-height: 30.4px" placeholder="输入主机组名称查询"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body errHeight scroll-index">
+                            <ul class="layui-timeline">
+                                <li class="layui-timeline-item" v-for="data in searchData">
+                                    <i class="layui-icon layui-timeline-axis"></i>
+                                    <div class="layui-timeline-content layui-text">
+                                        <h3 class="layui-timeline-title">
+
+                                                <span v-cloak class="color6 font14px">{{data.lastChangeTime}}</span>
+
+                                        </h3>
+                                        <p>
+                                        <div class="row"><span class="col-xs-3 font12px">故障:</span><span
+                                                class="col-xs-9 font12px" v-cloak :class=" data.lvcss">{{data.description}}</span>
+                                        </div>
+                                        <div class="row"><span class="col-xs-3 font12px">主机：</span>
+                                            <a href="Infrastructure.html">
+                                            <span
+                                                    class="col-xs-9 font12px" v-cloak style="color:#777;text-decoration: underline" v-on:click="jump(data.hosts[0].host)">{{data.hosts[0].host}}</span>
+                                            </a>
+                                        </div>
+                                        <div class="row"><span class="col-xs-3 font12px">持续时间:</span><span
+                                                class="col-xs-9 font12px" v-cloak>{{data.difference}}</span></div>
+                                        <div class="row"><span class="col-xs-3 font12px">主机组：</span><span
+                                                class="col-xs-9 font12px"><span v-cloak v-for="d in data.groups" class="indexerr">{{d.name}}</span></span></div>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel foot">
+                        <div class="panel-body text-align-center">
+                            © 2017 - 2019, JKSTACK. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>
+<script src="jsp/js/jquery-3.2.1.min.js"></script>
+<script src="jsp/js/jquery.cookie.js"></script>
+<script src="jsp/assets/layui/layui.js"></script>
+<script src="jsp/js/bootstrap.min.js"></script>
+<script src="jsp/js/vue.min.js"></script>
+<script src="jsp/js/echarts.min.js"></script>
+<script src="jsp/js/macarons.js"></script>
+<script src="jsp/js/jquery.sparkline.js" type="text/javascript"></script>
+<script src="jsp/js/sparkline-chart.js"></script>
+<script src="jsp/js/Pagination.js"></script>
+<script src="jsp/js/main.js" type="text/javascript"></script>
+<script src="jsp/js/jquery.mloading.js" type="text/javascript"></script>
+</body>
+</html>

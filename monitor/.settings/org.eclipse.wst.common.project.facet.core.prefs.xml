@@ -1,0 +1,8 @@
+<root>
+  <facet id="web.struts2"/>
+  <facet id="wst.jsdt.web"/>
+  <facet id="jst.web"/>
+  <facet id="java"/>
+  <facet id="me.hibernate"/>
+  <facet id="me.spring"/>
+</root>

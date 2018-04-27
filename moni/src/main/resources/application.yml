@@ -1,0 +1,18 @@
+server:
+  port: 80
+  context-path: /monitor
+zabbix:
+  zabbix: http://192.168.1.200/zabbix/api_jsonrpc.php
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.36:3306/monitor?useUnicode\=true&amp;characterEncoding\=utf-8
+    username: root
+    password: 123qweASD
+  jpa:
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    root:
+      error
