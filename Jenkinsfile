@@ -6,7 +6,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'ls -la'
                 sh 'pwd'
                 sh 'mvn clean install -f moni/pom.xml'
             }
@@ -15,7 +14,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'pwd'
-                //sh 'mvn clean verify sonar:sonar'//
+                sh 'mvn clean verify sonar:sonar'
             }
         }
         stage('Deploy') {
