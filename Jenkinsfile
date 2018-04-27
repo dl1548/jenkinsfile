@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mvn clean verify sonar:sonar'
+                sh 'mvn clean verify sonar:sonar -f moni/pom.xml'
             }
         }
         stage('Deploy') {
