@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'pwd'
-                sh 'mvn clean verify sonar:sonar'
+                sh 'mvn clean verify sonar:sonar -f moni/pom.xml'
             }
         }
         stage('Deploy') {
