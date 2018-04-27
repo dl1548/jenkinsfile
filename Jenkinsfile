@@ -7,7 +7,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls -la'
-                sh 'mvn clean -f moni/pom.xml'
+                sh 'pwd'
+                sh 'mvn clean -f pipeline-test/moni/pom.xml'
             }
         }
         stage('Test') {
