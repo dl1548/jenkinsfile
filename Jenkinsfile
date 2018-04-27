@@ -8,14 +8,14 @@ pipeline {
                 echo 'Building..'
                 sh 'ls -la'
                 sh 'pwd'
-                sh 'mvn clean -f pipeline-test/moni/pom.xml'
+                sh 'mvn clean -f moni/pom.xml'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'pwd'
-                sh 'mvn clean verify sonar:sonar '
+                //sh 'mvn clean verify sonar:sonar'//
             }
         }
         stage('Deploy') {
