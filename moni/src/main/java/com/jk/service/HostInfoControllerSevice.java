@@ -242,6 +242,7 @@ public class HostInfoControllerSevice {
 		 for(int i=0;i<list.size();i++){
 			 com.zabbix4j.host.HostGetResponse.Result result=list.get(i);
 			 String hostid=result.getHostid().toString();
+			 System.out.println("result.getName"+result.getName());
 			 ids[i]=hostid;
 		 }
 	     return ids; 

@@ -139,5 +139,15 @@ public class ZabbixUserController {
 		}
 		return ZabbixuserService.updateUserById(user, auth);
 	}
-	
+	/**
+	 * 根据id获取user
+	 * @param ids
+	 * @return 
+	 * @throws JSONException 
+	 */
+	@PostMapping(value="/getUserByid")
+	public String getUserByid(@RequestParam("userid")String userid,@RequestParam("auth")String auth){
+		TestUser testuser=new TestUser();
+        return testuser.testGet(userid, auth);
+	}
 }

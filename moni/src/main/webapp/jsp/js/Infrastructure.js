@@ -1315,7 +1315,7 @@ var vue1 = new Vue({
                                         1: 'avi2',
                                         2: 'avi3'
                                     };
-                                    $.post("/monitor/getResource", {pagenum: obj.curr}, function (data) {
+                                    $.post("/monitor/getResource", {pagenum: obj.curr,hostGroupid: h}, function (data) {
                                         var arr = [];
                                         for (var a = 0; a < data.length; a++) {
                                             arr.push(JSON.parse(data[a]));
