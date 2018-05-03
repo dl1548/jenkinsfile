@@ -2,6 +2,9 @@
 pipeline {
     agent any
 
+    triggers {
+        cron('*/10 * 0 0 1-5')
+    }
     stages {
         stage('Build') {
             steps {
@@ -24,6 +27,11 @@ pipeline {
                 echo 'Restart tomcat.....'
                 sh "sshpass -p centos ssh root@192.168.1.55 '/usr/bin/bash ~/deploy.sh monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER'"
             }
+        }
+    }
+    post {
+        always {
+            echo 'post always'
         }
     }
 }
