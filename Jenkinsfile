@@ -57,12 +57,18 @@ pipeline {
                 )
             }
         }
+        /*
         stage('mail'){
             steps {
                 echo 'send mail'
-                mail bcc: '', body: 'pipeline mail test', cc: '', from: '', replyTo: '', subject: 'pipeline-test', to: 'lizili@jingkunsystem.com'
+                mail body: 'project build successful',
+                     from: 'lizili@jingkunsystem.com',
+                     replyTo: 'xxxx@yyyy.com',
+                     subject: 'project build successful',
+                     to: 'lizili@jingkunsystem.com'
             }
         }
+        */
     }
 
     /*
