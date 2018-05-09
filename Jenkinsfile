@@ -89,7 +89,7 @@ pipeline {
             mail body: "${env.BUILD_ID} on ${env.JENKINS_URL}",
                  from: 'lizili@jingkunsystem.com',
                  replyTo: '',
-                 subject: 'project build SUCCESS',
+                 subject: "${env.JOB_BASE_NAME} build SUCCESS",
                  to: 'lizili@jingkunsystem.com'
         }
         failure {
@@ -97,7 +97,7 @@ pipeline {
             mail body: "${env.BUILD_ID} on ${env.JENKINS_URL}",
                  from: 'lizili@jingkunsystem.com',
                  replyTo: '',
-                 subject: 'project build FAILURE',
+                 subject: "${env.JOB_BASE_NAME} build FAILURE",
                  to: 'lizili@jingkunsystem.com'
         }
         /*
