@@ -1,4 +1,5 @@
 //Jenkinsfile (Declarative Pipeline)//
+//author: lizili//
 pipeline {
     agent any
 
@@ -8,16 +9,23 @@ pipeline {
         pollSCM('H/10 * * * 1-5')
     }
     stages {
+        /*
         stage('git') {
             steps {
-                checkout(
-                    [$class: 'GitSCM', branches: [[name: '*/master']],
-                    doGenerateSubmoduleConfigurations: false, extensions: [],
-                    submoduleCfg: [], userRemoteConfigs: [[credentialsId: '221e2ea3-be6c-41f2-b43d-f55afa078a7d',
-                    url: 'https://github.com/dl1548/monitor.git']]]
-                    )
+                echo 'Git..'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        credentialsId: '221e2ea3-be6c-41f2-b43d-f55afa078a7d',
+                        url: 'https://github.com/dl1548/monitor.git']]
+                    ])
             }
         }
+        */
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -31,6 +39,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
             steps {
                 echo 'upload file to server....'
                 /*
@@ -70,31 +83,44 @@ pipeline {
         }
 
         stage('mail'){
+            echo 'send mail'
+            /*
             steps {
                 echo 'send mail'
-                /*
-                mail body: 'project build successful',
+                mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
                      from: 'lizili@jingkunsystem.com',
                      replyTo: '',
-                     subject: 'project build successful',
+                     subject: 'project build FAILURE',
                      to: 'lizili@jingkunsystem.com'
-                */
             }
+            */
         }
 
     }
 
-    /*
     post {
+        /*
         always {
             echo 'This will always run'
         }
+        */
         success {
-            echo 'This will run only if successful'
+            echo 'send mail-BUILD-SUCCESS'
+            mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
+                 from: 'lizili@jingkunsystem.com',
+                 replyTo: '',
+                 subject: 'project build SUCCESS',
+                 to: 'lizili@jingkunsystem.com'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'send mail-BUILD-FAILURE'
+            mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
+                 from: 'lizili@jingkunsystem.com',
+                 replyTo: '',
+                 subject: 'project build FAILURE',
+                 to: 'lizili@jingkunsystem.com'
         }
+        /*
         unstable {
             echo 'This will run only if the run was marked as unstable'
         }
@@ -102,6 +128,6 @@ pipeline {
             echo 'This will run only if the state of the Pipeline has changed'
             echo 'For example, if the Pipeline was previously failing but is now successful'
         }
+        */
     }
-    */
 }
