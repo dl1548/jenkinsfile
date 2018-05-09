@@ -3,13 +3,11 @@
 pipeline {
     agent any
 
-
     triggers {
         //cron('H/10 * * * 1-5')//
         pollSCM('H/10 * * * 1-5')
     }
     stages {
-
         stage('git') {
             steps {
                 echo 'Git..'
@@ -53,8 +51,6 @@ pipeline {
                 echo 'Restart tomcat.....'
                 sh "sshpass -p centos ssh root@192.168.1.55 '/usr/bin/bash ~/deploy.sh deploy monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER'"
                 */
-
-                /*
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
@@ -80,7 +76,6 @@ pipeline {
                         )
                     ]
                 )
-                */
             }
         }
 
