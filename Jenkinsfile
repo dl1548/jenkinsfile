@@ -33,6 +33,8 @@ pipeline {
                 echo 'Restart tomcat.....'
                 sh "sshpass -p centos ssh root@192.168.1.55 '/usr/bin/bash ~/deploy.sh deploy monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER'"
                 */
+
+                /*
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
@@ -58,6 +60,7 @@ pipeline {
                         )
                     ]
                 )
+                */
             }
         }
 
@@ -83,7 +86,7 @@ pipeline {
         */
         success {
             echo 'send mail-BUILD-SUCCESS'
-            mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
+            mail body: "${env.BUILD_ID} on ${env.JENKINS_URL}",
                  from: 'lizili@jingkunsystem.com',
                  replyTo: '',
                  subject: 'project build SUCCESS',
@@ -91,7 +94,7 @@ pipeline {
         }
         failure {
             echo 'send mail-BUILD-FAILURE'
-            mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
+            mail body: "${env.BUILD_ID} on ${env.JENKINS_URL}",
                  from: 'lizili@jingkunsystem.com',
                  replyTo: '',
                  subject: 'project build FAILURE',
