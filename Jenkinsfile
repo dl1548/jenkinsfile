@@ -11,6 +11,7 @@ pipeline {
         stage('git') {
             steps {
                 echo 'Git..'
+                /*
                 checkout([
                     $class: 'GitSCM',
                     branches: [[name: '*/master']],
@@ -21,6 +22,7 @@ pipeline {
                         credentialsId: '221e2ea3-be6c-41f2-b43d-f55afa078a7d',
                         url: 'https://github.com/dl1548/monitor.git']]
                     ])
+                */
             }
         }
         stage('Build') {
