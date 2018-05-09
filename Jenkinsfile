@@ -57,7 +57,6 @@ pipeline {
                 )
             }
         }
-        /*
         stage('mail'){
             steps {
                 echo 'send mail'
@@ -68,7 +67,6 @@ pipeline {
                      to: 'lizili@jingkunsystem.com'
             }
         }
-        */
     }
 
     /*
