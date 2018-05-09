@@ -25,9 +25,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'upload file to server....'
-                //sh "sshpass -p centos scp $WORKSPACE/moni/target/monitor.war root@192.168.1.55:/root/war"//
-                //echo 'Restart tomcat.....'//
-                //sh "sshpass -p centos ssh root@192.168.1.55 '/usr/bin/bash ~/deploy.sh deploy monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER'"//
+                /*
+                sh "sshpass -p centos scp $WORKSPACE/moni/target/monitor.war root@192.168.1.55:/root/war"
+                echo 'Restart tomcat.....'
+                sh "sshpass -p centos ssh root@192.168.1.55 '/usr/bin/bash ~/deploy.sh deploy monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER'"
+                */
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
@@ -53,11 +55,16 @@ pipeline {
                         )
                     ]
                 )
-
+            }
+        }
+        stage('mail'){
+            steps {
+                echo 'send mail'
+                mail bcc: '', body: 'pipeline mail test', cc: '', from: '', replyTo: '', subject: 'pipeline-test', to: 'lizili@jingkunsystem.com'
             }
         }
     }
-    
+
     /*
     post {
         always {
