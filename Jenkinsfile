@@ -83,19 +83,17 @@ pipeline {
         }
 
         stage('mail'){
-            echo 'send mail'
-            /*
             steps {
                 echo 'send mail'
+                /*
                 mail body: '${env.BUILD_ID} on ${env.JENKINS_URL}',
                      from: 'lizili@jingkunsystem.com',
                      replyTo: '',
                      subject: 'project build FAILURE',
                      to: 'lizili@jingkunsystem.com'
+                */S
             }
-            */
         }
-
     }
 
     post {
