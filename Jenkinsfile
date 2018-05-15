@@ -12,12 +12,14 @@ pipeline {
             steps {
                 echo 'Building..'
                 //sh 'mvn clean install -f moni/pom.xml'//
+                sh 'mvn clean install -f pom.xml'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 //sh 'mvn clean verify sonar:sonar -f moni/pom.xml'//
+                sh 'mvn clean verify sonar:sonar -f pom.xml'
             }
         }
         stage('Deploy') {
@@ -50,8 +52,8 @@ pipeline {
                                     patternSeparator: '[, ]+',
                                     remoteDirectory: 'root/war/',
                                     remoteDirectorySDF: false,
-                                    removePrefix: 'moni/target/',
-                                    sourceFiles: 'moni/target/*.war'
+                                    removePrefix: 'target/',
+                                    sourceFiles: 'target/*.war'
                                 )
                             ],
                             usePromotionTimestamp: false,
