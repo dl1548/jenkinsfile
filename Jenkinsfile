@@ -43,7 +43,7 @@ pipeline {
                             transfers: [
                                 sshTransfer(
                                     excludes: '',
-                                    execCommand: '~/deploy.sh deploy test-1 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER',
+                                    execCommand: '~/deploy.sh deploy test 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER',
                                     execTimeout: 120000,
                                     flatten: false,
                                     makeEmptyDirs: false,
