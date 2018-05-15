@@ -29,7 +29,7 @@ pipeline {
                 }
             }
             steps {
-                echo 'upload file to server....'
+                echo 'upload file to server & restart tomcat....'
                 /*
                 sh "sshpass -p centos scp $WORKSPACE/moni/target/monitor.war root@192.168.1.55:/root/war"
                 echo 'Restart tomcat.....'
@@ -44,7 +44,7 @@ pipeline {
                             transfers: [
                                 sshTransfer(
                                     excludes: '',
-                                    execCommand: '~/deploy.sh deploy monitor 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER',
+                                    execCommand: '~/deploy.sh deploy test 80 /usr/local/tomcat-7.0.85 $BUILD_NUMBER',
                                     execTimeout: 120000,
                                     flatten: false,
                                     makeEmptyDirs: false,
