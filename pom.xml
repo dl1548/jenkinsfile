@@ -20,9 +20,6 @@
           </configuration>
       </plugin>
     </plugins>
-
-
-  </build>
   </build>
   <dependencies>
     <dependency>
