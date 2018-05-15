@@ -52,6 +52,8 @@ pipeline {
                                     patternSeparator: '[, ]+',
                                     remoteDirectory: 'root/war/',
                                     remoteDirectorySDF: false,
+                                    //removePrefix: 'moni/target/',//
+                                    //sourceFiles: 'moni/target/*.war'//
                                     removePrefix: 'target/',
                                     sourceFiles: 'target/*.war'
                                 )
